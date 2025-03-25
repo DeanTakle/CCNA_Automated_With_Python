@@ -1,0 +1,43 @@
+#### S1 Basic Config ####
+Configure Hostname on S1 = hostname S1 when in global config mode
+Use 'cisco' as console password = con line 0, password cisco, login
+Use 'class' as prive exec password = enable secret class
+Verify passwords = do sh run, then look for enable secret and console password
+Use appropriate banner text to warn unauthorised access w/ 'Authorized access only. Violators will be prosecuted to the full extent of the law.' = banner motd # Authorized access only. Violators will be prosecuted to the full extent of the law.
+Save config to NVRAM = do copy run start
+#### END ####
+
+#### S2 Basic Config ####
+Configure Hostname on S2 = hostname S2
+Use 'cisco' as console password = con line 0, password cisco, login
+Use 'class' as prive exec password = enable secret class
+Verify passwords = do sh run, then look for enable secret and console password
+Use appropriate banner text to warn unauthorised access w/ 'Authorized access only. Violators will be prosecuted to the full extent of the law.' = banner motd # Authorized access only. Violators will be prosecuted to the full extent of the law.
+Save config to NVRAM = do copy run start
+#### END ####
+
+#### CANNOT BE AUTOMATED BY MY KNOWLEDGE BASE YET ####
+Config PC1 = desktop, IP configuration, IP: 192.168.1.1 SUB MASK:255.255.255.0 DFG: 192.168.1.253
+Config PC2 = desktop, IP configuration, IP: 192.168.1.2 SUB MASK:255.255.255.0 DFG: 192.168.1.253
+Ping each PC = prompt, ping {IP of opposite PC}
+#### END ####
+
+#### S1 IP Address Config ####
+Go into int for vlan 1 = int vlan 1 
+Add IP to int = ip add 192.168.1.253 255.255.255.0, no shut
+Save new config = do copy run start
+#### END ####
+
+#### S2 IP Address Config ####
+Go into int for vlan 1 = int vlan 1 
+Add IP to int = ip add 192.168.1.254 255.255.255.0, no shut
+Save new config = do copy run start
+#### END ####
+
+#### Test Connectivity On All Devices ####
+Ping Device = ping {IP of Device being pinged}
+### END ###
+
+#### WARNING ####
+If you get 80% when pinging that is because ARP uses the 1st packet to learn where the device is
+#### END ####
