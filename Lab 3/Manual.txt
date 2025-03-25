@@ -1,0 +1,20 @@
+This Lab CANNOT Be Automated
+This is because this is the manual element of Network Engineering - Physical Connections
+Well you CAN automate the initial investigation = sh ip int brief, sh ip int status etc.'
+When it comes to connecting devices to each other, if you cannot afford another network device if more ports are needed then you can buy modules that can expand the amount of ports you have.
+I would recommend making sure you have the correct amount od dveices and ports per device to make life easier.
+If you are adding a module make sure to turn the switch off, one its good practice because you dont want to destroy the device and two the device will not recognise the module install till rebooted.
+When connecting devices to each other there is an easy way of rembering stuff:
+two of a kind needs a crossover (Endpoints to Endpoints, Switch to Switch, Router to Router etc.)
+opposites need a straight through (Endpoints to Switch, Router to Switch.)
+The reason for this is because of the transmit and recive pins that are used for the devices. 
+Endpoints and Router use pins 1 + 2 to transmit data and pins 3 + 6 to recive data
+Switches however use pins 3 + 6 to transmit data and pins 1 + 2 to recive.
+However this is just good to have knowledge as in modern device there is a system called Auto-MDIX which analyses what device are using what pins and swaps them around accordingly, pretty neat.
+Once these device are connected to each other you can run the 'sh ip int br' command and you should see and output that states Interface, IP-Address, OK?, Method, Status, Prototcol.
+Interface is the port on that device.
+IP-Address is the IP that is associated to that interface.
+OK? is if the connection / port is OK.
+Method is how the connection was learnt 'Manual' for manually done and 'Dynamic' for dynamically learnt.
+Status is used to indecate if the physcial layer is up or not, depedning on the output you can see if there may be an issue with the physical layer (Cables etc.)
+Protocol is used to indecate if the Data Link layer is up or not, depedning ont the output you can see if there may be any issues with the data link layer (Transmission of Eth frames to and from the port etc.)
