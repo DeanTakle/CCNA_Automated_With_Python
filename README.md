@@ -7,7 +7,11 @@ Everything added to this repository will be added via Git.
 I will be using a vast amount of labs stemming from my Uni Course, Niel Anderson and Jeremy's IT Lab
 
 Tech Stack:
+
+Langauage:
 Python:
+
+Python Libraries:
 Netmiko
 
 What is Netmiko
