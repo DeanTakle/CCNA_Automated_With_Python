@@ -1,0 +1,16 @@
+Establish connection to router: Connect to the router using a console cable: search up device manager in search bar, click ports drop down and see which one the console cable is connected on. Open terminal emulator (PuTTy etc) the change connection to serial and select correct COM port.
+Enter privilege mode: use 'en' command to get to priv exec mode
+Show running config: use 'sh run' command
+Display contents of NVRAM: use 'sh start' command
+
+### Intial Router Config ####
+Enter Global Config Mode: use 'conf t' command.
+Config R1 has hostname: use 'host R1' command
+Config MOTD as: Unauthorized access is strictly prohibited.: use 'banner motd # Unauthorized access is strictly prohibited.' command
+Config passwords: 
+    Priv Exec Unecncrypted Pass is 'cisco': use 'enable password cisco' comamnd
+    Priv Exec Encrypted Pass is 'itsasecret': use 'enable secret itsasecret' comamnd
+    Console Password is 'letmein': use the following commmand 'line con 0', 'password letmein', 'login'
+Encrypt all clear text password: use 'service password-encryption' command
+Save running config: use 'do copy run start' command.
+(Optional) Save startup config to flash: use 'copy start flash' command.
