@@ -1,0 +1,46 @@
+Display Router Info
+What command displays the statistics for all interfaces configured on the router: 'sh interfaces'
+What command displays the information about Serial 0/0/0 int: 'sh int S0/0/0'
+Enter the command to display the statistics for Serial 0/0/0 and answer the following: 'sh int s0/0/0'
+    What IP address is configured on R1?: Will be found on the line that says 'Internet Address is X'
+    What is the bandwidth on the Serial 0/0/0 int?: Will be found on the line that says 'MTU 1500 bytes, BW 1544 Kbit, DLY 20000 usec', 'BW 1544 Kbit' is the bandwidth for this link.
+Enter the command to display the statistics for GigEthernet 0/0 and answer the following: 'sh int g0/0'
+    What is the IP address?: Will be found on the line that says 'Internet Address is X'
+    What is the MAC address of GigEthernet0/0?: Will be found on the line that states Hardware is X GigEthernet, address is Y (bia Z)' where 'Y' is the MAC address of the device connected to that interface.
+        BIA is 'burned in address' this will NEVER change, however MAC address's can be changed on the device.
+    What is the bandwidth of GigEthernet0/0?: Will be found on the line that says 'MTU X bytes, BW Y, DLY Z usec', 'BW Y' is the bandwidth for this link.
+
+Display A Summary List Of The Interfaces On R1
+Which command displays a brief summary of the current interfaces, int status and IP address assigned to them?: 'sh ip int brief'
+How many serial interfaces are are there?: 'sh int | include Serial'
+How many etehrnet interfaces are there?: 'sh int | include Eth'
+Are all the ethernet interfaces on R1 the same?: No, as Ethernet is 10Mbps, FastEth is 100Mbps and GigEth is 1Gbps or 1000Mbps
+
+Display Routing Table On R1
+What command displays the contents of the routing table?: 'sh ip route'
+How many connected routers are there (C)?: There is a Codes table above the actual routes that can help clarify what router are what. Connected routers use the code C.
+Which route is listed?: The only Connected route is Serial0/0/0 as it is the only interfaces that has been configured with an IP. If there is a connected router then there will also be a Local (L) route. Local routes are for just that IP and have a subnet of /32 or 255.255.255.255.
+How does a router handle a packet destined for a network that is not listed in the routing table?: As there is no way for the router to route that packet it will drop it.
+
+Configure Router Interfaces
+Configure G0/0 int on R1: 'int g0/0', 'ip add 192.168.10.1 255.255.255.0', 'no shut'.
+Configure description on int: 'desc LAN connection to S1', 'end'.
+
+Ping PC1
+On router: 'ping 192.168.10.10'
+
+Configure remaining interfaces on R1 and R2
+R1:
+    g0/1: 'int g0/1', 'ip add 192.168.11.1 255.255.255.0', 'desc LAN connection to S2'.
+R2:
+    g0/0: 'int g0/0', 'ip add 10.1.1.10 255.255.255.0', 'desc LAN connection to S3'.
+    g0/1: 'int g0/1', 'ip add 10.1.2.10 255.255.255.0', 'desc LAN connection to S4'.
+
+Back up
+Backup R1 and R2: 'copy run start'
+
+Verify The Config
+Check IPs of ints: 'sh ip int br'
+How many interfaces on R1 and R2 are configured
+What part of the config is not in this command?: Subnet Mask
+What command can you use to verify subnet mask?: 'sh int'
