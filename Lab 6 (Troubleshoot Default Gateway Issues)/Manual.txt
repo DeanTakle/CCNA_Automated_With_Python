@@ -1,0 +1,12 @@
+Parts of this torubleshooting excersise can be Automated.
+
+Check R1 config
+Check int IP config: 'sh ip in br', you wanna make sure that the interfaces have the correct IP addresses configured to the interfaces connecting to the switches.
+
+Check Switches
+Check default gateway configured: 'sh run | inc ip default-gateway', you wanna make sure this is configured and is configured for the IP address of the interface on R1 that is connecting to the switch.
+Check VLAN IP: 'sh ip int br | inc Vlan1', you wanna make sure that there is an IP address on the Vlan as this is the mangement interface of the switch.
+
+PC Checks
+This cannot be automated.
+However, you would want to make sure that the IP address is correct, that the subnet mask is correct and that the default gateway is configured to be the IP address of the interface that connects it to the rest of the network on R1.

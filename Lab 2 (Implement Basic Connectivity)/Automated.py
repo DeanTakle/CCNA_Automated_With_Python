@@ -4,14 +4,14 @@ from netmiko import ConnectHandler
 
 S1 = {
     'device_type': 'cisco_ios',
-    'host': '192.168.1.253',
+    'host': '10.1.3.1',
     'username': '',
     'password': '',
 }
 
 S2 = {
     'device_type': 'cisco_ios',
-    'host': '192.168.1.254',
+    'host': '10.1.3.2',
     'username': '',
     'password': '',
 }
