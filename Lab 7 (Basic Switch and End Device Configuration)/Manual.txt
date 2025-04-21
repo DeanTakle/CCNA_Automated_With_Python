@@ -1,0 +1,7 @@
+Name switchs "Class-A or Class-B": "hostname Class-A" or "hostname Class-B"
+Use "8ubRu" as password for all lines: "line con 0, password 8ubRu, login local, exit". "line vty 0 15, password 8ubRu, login local, exit".
+Use "C9WrE" as password for secret: "enable secret C9WrE"
+Encrypt all clear text passwords: "service password-encryption"
+configure MOTD banner: "banner MOTD # MESSAGE #
+Configure ip addressing: "int vlan 1, ip add 172.16.5.X 255.255.255.0, no shut, exit"
+Save config: "copy run start"
