@@ -8,6 +8,9 @@ I will be using a vast amount of labs stemming from my Uni Course, Niel Anderson
 
 Tech Stack:
 
+CI/CD:
+Git
+
 Langauage:
 Python:
 
