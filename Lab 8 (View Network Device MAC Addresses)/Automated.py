@@ -34,6 +34,7 @@ for device in devices:
 
         int_mac_address = connection.send_command('sh int vlan 1').splitlines
         for line in int_mac_address:
+            # checking if the line contains the string 'address is'
             if 'address is' in line:
                 # splitting the line to get the MAC address, -1 is used to get the last element of the list
                 mac_address = line.split(' ')[-1]
