@@ -1,0 +1,8 @@
+Assign a hostname to S1: "host S1"
+Disable DNS lookup: "no ip domain-lookup"
+Config and enable SVI int for vlan 1: "int vlan 1, ip add 192.168.1.2 255.255.255.0, no shut, exit"
+Analyse the MAC address on S1: "sh int vlan 1" and address ib 2nd line of output is the MAC address on the interface.
+A BIA is a burned in address which is a MAC address that cannot be changed.
+Show arp table: "sh arp"
+View all MAC addresses on S1: "Sh MAC address-table"
+Why would you need to know the MAC address of a device?: To be able to find that device on network equipment to see if it is connected or not.
